@@ -3,6 +3,14 @@
 // Desafio de Xadrez - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void movimentoLoop(int passos, char *direcao)
+{
+    if (passos > 0)
+    {
+        printf(direcao);
+        movimentoLoop(passos - 1, direcao);
+    }
+}
 
 int main()
 {
@@ -37,29 +45,26 @@ int main()
         case 1:
             // Movimento bispo, 5 casas para direita e 5 casas para cima
             opcao = 0;
-            for (int i = 0; i < bispoMax; i++)
+            for (int i = 0; i < bispoMax; bispoMax--)
             {
+                if (bispoMax == 2)
+                {
+                    break;
+                }
                 printf(CIMA);
-                printf(DIREITA);
+                printf(ESQUERDA);
             }
+            movimentoLoop(bispoMax, "Cima\nDireita\n");
             break;
         case 2:
             // Movimento torre, 5 casas para a direita
             opcao = 0;
-            for (int i = 0; i < torreMax; i++)
-            {
-                printf(DIREITA);
-            }
+            movimentoLoop(torreMax, DIREITA);
             break;
         case 3:
             // Movimento rainha, 8 casas para a esquerda
             opcao = 0;
-            int passosRainha = 0;
-            while (passosRainha < rainhaMax)
-            {
-                printf(ESQUERDA);
-                passosRainha++;
-            }
+            movimentoLoop(rainhaMax, ESQUERDA);
             break;
         case 4:
             // Movimento cavalo, 2 casas para baixo e 1 para esquerda
