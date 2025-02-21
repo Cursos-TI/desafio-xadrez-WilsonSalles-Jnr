@@ -15,6 +15,8 @@ int main()
     int bispoMax = 5;
     int torreMax = 5;
     int rainhaMax = 8;
+    int cavaloMaxY = 2;
+    int cavaloMaxX = 1;
     // Opções disponíveis: [1, 2, 3]
     int opcao;
     // Caso nenhuma opção disponível for escolhida corretamente, a variável se tornará verdadeira, fazendo repertir o loop pai
@@ -25,6 +27,7 @@ int main()
     printf("1 - Bispo\n");
     printf("2 - Torre\n");
     printf("3 - Rainha\n");
+    printf("4 - Cavalo\n");
 
     do
     {
@@ -56,6 +59,19 @@ int main()
             {
                 printf(ESQUERDA);
                 passosRainha++;
+            }
+            break;
+        case 4:
+            // Movimento cavalo, 2 casas para baixo e 1 para esquerda
+            opcao = 0;
+            while (cavaloMaxX)
+            {
+                for (int i = 0; i < cavaloMaxY; i++)
+                {
+                    printf(BAIXO);
+                }
+                printf(ESQUERDA);
+                cavaloMaxX--;
             }
             break;
         default:
